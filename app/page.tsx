@@ -1557,65 +1557,6 @@ export default function Home() {
         </section>
 
         <section
-          id="about"
-          className="w-full overflow-hidden bg-white py-12 dark:bg-[#1d1d1f] md:py-24 lg:py-32"
-        >
-          <div className="container relative px-4 md:px-6">
-            <div className="flex flex-col items-center justify-center space-y-4 text-center">
-              <div className="max-w-3xl space-y-2">
-                <Badge
-                  variant="outline"
-                  className="mb-2 border-0 bg-gradient-to-r from-[#0066cc] to-[#5ac8fa] px-3 py-1 text-sm text-white shadow-sm"
-                >
-                  {t.nav.about} U.S.E
-                </Badge>
-                <h2 className="bg-gradient-to-r from-[#0066cc] to-[#5ac8fa] bg-clip-text text-3xl font-bold tracking-tight text-transparent sm:text-5xl">
-                  {t.about.title}
-                </h2>
-                <p className="text-[#6e6e73] dark:text-[#86868b] md:text-xl/relaxed lg:text-base/relaxed xl:text-xl/relaxed">
-                  {t.about.description}
-                </p>
-              </div>
-            </div>
-            <div className="mx-auto grid max-w-5xl items-center gap-6 py-12 lg:grid-cols-3 lg:gap-12">
-              <div className="flex transform flex-col justify-center space-y-4 rounded-3xl border border-[#e5e5ea] bg-white p-8 shadow-lg transition-all duration-300 hover:scale-[1.02] hover:shadow-xl dark:border-[#3a3a3c] dark:bg-[#2c2c2e]">
-                <div className="flex h-14 w-14 items-center justify-center rounded-full bg-gradient-to-r from-[#0066cc] to-[#5ac8fa] text-white shadow-md">
-                  <Shield className="h-7 w-7" />
-                </div>
-                <div className="space-y-2">
-                  <h3 className="text-xl font-bold">{t.about.privacy.title}</h3>
-                  <p className="text-[#6e6e73] dark:text-[#86868b]">
-                    {t.about.privacy.description}
-                  </p>
-                </div>
-              </div>
-              <div className="flex transform flex-col justify-center space-y-4 rounded-3xl border border-[#e5e5ea] bg-white p-8 shadow-lg transition-all duration-300 hover:scale-[1.02] hover:shadow-xl dark:border-[#3a3a3c] dark:bg-[#2c2c2e]">
-                <div className="flex h-14 w-14 items-center justify-center rounded-full bg-gradient-to-r from-[#34c759] to-[#30d158] text-white shadow-md">
-                  <ShoppingBag className="h-7 w-7" />
-                </div>
-                <div className="space-y-2">
-                  <h3 className="text-xl font-bold">{t.about.economy.title}</h3>
-                  <p className="text-[#6e6e73] dark:text-[#86868b]">
-                    {t.about.economy.description}
-                  </p>
-                </div>
-              </div>
-              <div className="flex transform flex-col justify-center space-y-4 rounded-3xl border border-[#e5e5ea] bg-white p-8 shadow-lg transition-all duration-300 hover:scale-[1.02] hover:shadow-xl dark:border-[#3a3a3c] dark:bg-[#2c2c2e]">
-                <div className="flex h-14 w-14 items-center justify-center rounded-full bg-gradient-to-r from-[#ffcc00] to-[#ff9500] text-white shadow-md">
-                  <CheckCircle className="h-7 w-7" />
-                </div>
-                <div className="space-y-2">
-                  <h3 className="text-xl font-bold">{t.about.quality.title}</h3>
-                  <p className="text-[#6e6e73] dark:text-[#86868b]">
-                    {t.about.quality.description}
-                  </p>
-                </div>
-              </div>
-            </div>
-          </div>
-        </section>
-
-        <section
           id="products"
           className="w-full bg-[#f5f5f7] py-12 dark:bg-[#1d1d1f] md:py-24 lg:py-32"
         >
@@ -2291,6 +2232,65 @@ export default function Home() {
                   <ChevronRight className="ml-1 h-4 w-4" />
                 </Button>
               </Link>
+            </div>
+          </div>
+        </section>
+
+        <section
+          id="about"
+          className="w-full overflow-hidden bg-white py-12 dark:bg-[#1d1d1f] md:py-24 lg:py-32"
+        >
+          <div className="container relative px-4 md:px-6">
+            <div className="flex flex-col items-center justify-center space-y-4 text-center">
+              <div className="max-w-3xl space-y-2">
+                <Badge
+                  variant="outline"
+                  className="mb-2 border-0 bg-gradient-to-r from-[#0066cc] to-[#5ac8fa] px-3 py-1 text-sm text-white shadow-sm"
+                >
+                  {t.nav.about} U.S.E
+                </Badge>
+                <h2 className="bg-gradient-to-r from-[#0066cc] to-[#5ac8fa] bg-clip-text text-3xl font-bold tracking-tight text-transparent sm:text-5xl">
+                  {t.about.title}
+                </h2>
+                <p className="text-[#6e6e73] dark:text-[#86868b] md:text-xl/relaxed lg:text-base/relaxed xl:text-xl/relaxed">
+                  {t.about.description}
+                </p>
+              </div>
+            </div>
+            <div className="mx-auto grid max-w-5xl items-center gap-6 py-12 lg:grid-cols-3 lg:gap-12">
+              <div className="flex transform flex-col justify-center space-y-4 rounded-3xl border border-[#e5e5ea] bg-white p-8 shadow-lg transition-all duration-300 hover:scale-[1.02] hover:shadow-xl dark:border-[#3a3a3c] dark:bg-[#2c2c2e]">
+                <div className="flex h-14 w-14 items-center justify-center rounded-full bg-gradient-to-r from-[#0066cc] to-[#5ac8fa] text-white shadow-md">
+                  <Shield className="h-7 w-7" />
+                </div>
+                <div className="space-y-2">
+                  <h3 className="text-xl font-bold">{t.about.privacy.title}</h3>
+                  <p className="text-[#6e6e73] dark:text-[#86868b]">
+                    {t.about.privacy.description}
+                  </p>
+                </div>
+              </div>
+              <div className="flex transform flex-col justify-center space-y-4 rounded-3xl border border-[#e5e5ea] bg-white p-8 shadow-lg transition-all duration-300 hover:scale-[1.02] hover:shadow-xl dark:border-[#3a3a3c] dark:bg-[#2c2c2e]">
+                <div className="flex h-14 w-14 items-center justify-center rounded-full bg-gradient-to-r from-[#34c759] to-[#30d158] text-white shadow-md">
+                  <ShoppingBag className="h-7 w-7" />
+                </div>
+                <div className="space-y-2">
+                  <h3 className="text-xl font-bold">{t.about.economy.title}</h3>
+                  <p className="text-[#6e6e73] dark:text-[#86868b]">
+                    {t.about.economy.description}
+                  </p>
+                </div>
+              </div>
+              <div className="flex transform flex-col justify-center space-y-4 rounded-3xl border border-[#e5e5ea] bg-white p-8 shadow-lg transition-all duration-300 hover:scale-[1.02] hover:shadow-xl dark:border-[#3a3a3c] dark:bg-[#2c2c2e]">
+                <div className="flex h-14 w-14 items-center justify-center rounded-full bg-gradient-to-r from-[#ffcc00] to-[#ff9500] text-white shadow-md">
+                  <CheckCircle className="h-7 w-7" />
+                </div>
+                <div className="space-y-2">
+                  <h3 className="text-xl font-bold">{t.about.quality.title}</h3>
+                  <p className="text-[#6e6e73] dark:text-[#86868b]">
+                    {t.about.quality.description}
+                  </p>
+                </div>
+              </div>
             </div>
           </div>
         </section>
