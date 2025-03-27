@@ -1,0 +1,604 @@
+{
+  "fr": {
+    "products": {
+      "food": {
+        "drinks": {
+          "title": "Boissons gazeuses",
+          "description": "Au lieu des sodas américains",
+          "us": "Coca-Cola, Pepsi",
+          "eu": "Breizh Cola, Fritz-kola",
+          "note": "De nombreux pays européens ont des marques locales de soda artisanal avec des ingrédients naturels."
+        },
+        "snacks": {
+          "title": "Snacks",
+          "description": "Alternatives européennes aux snacks américains",
+          "us": "Lay's, Doritos, Monster Munch",
+          "eu": "Brets, Tyrrell's, Sibell",
+          "note": "Les snacks européens contiennent souvent moins d'additifs et de conservateurs."
+        },
+        "fastfood": {
+          "title": "Fast-food",
+          "description": "Alternatives locales aux chaînes américaines",
+          "us": "McDonald's, Burger King, KFC, Subway, Domino's Pizza, Krispy Kreme",
+          "eu": "Quick, Big Fernand, O'Tacos, Pomme de Pain, La Boîte à Pizza, La Mie Câline",
+          "note": "Soutenez les chaînes de restauration rapide européennes locales avec des spécialités régionales."
+        },
+        "coffee": {
+          "title": "Café",
+          "description": "Alternatives aux chaînes de café américaines",
+          "us": "Starbucks, Dunkin'",
+          "eu": "Columbus Café, Café Malongo",
+          "note": "Les cafés européens proposent souvent des grains de meilleure qualité et un savoir-faire artisanal."
+        },
+        "chocolate": {
+          "title": "Chocolat",
+          "description": "Alternatives aux marques américaines",
+          "us": "Hershey's, Mars",
+          "eu": "Lindt, Côte d'Or, Milka",
+          "note": "Le chocolat européen est réputé pour sa qualité supérieure et ses méthodes de fabrication traditionnelles."
+        },
+        "cereals": {
+          "title": "Céréales",
+          "description": "Alternatives aux céréales américaines",
+          "us": "Kellogg's, General Mills",
+          "eu": "Jordans, Alpen, Bjorg",
+          "note": "Les céréales européennes contiennent généralement moins de sucre et plus d'ingrédients naturels."
+        },
+        "soda": {
+          "title": "Sodas et boissons",
+          "description": "Alternatives aux sodas américains",
+          "us": "Mountain Dew, Dr Pepper, Fanta, Sierra Mist",
+          "eu": "Club-Mate, Kofola, Orangina, 7Up",
+          "note": "L'Europe propose une grande variété de sodas locaux avec des recettes originales et souvent moins sucrées."
+        },
+        "chips": {
+          "title": "Chips et snacks salés",
+          "description": "Alternatives aux marques américaines",
+          "us": "Pringles, Barbecue Lay's, Goldfish Crackers",
+          "eu": "Lorenz Chipsletten, Chips Vico, Belin Croustilles",
+          "note": "Les chips européennes utilisent souvent des ingrédients de meilleure qualité et des huiles plus saines."
+        },
+        "condiments": {
+          "title": "Condiments",
+          "description": "Alternatives aux sauces américaines",
+          "us": "Heinz Ketchup, Cheez Whiz",
+          "eu": "Amora Ketchup, Kiri",
+          "note": "Les condiments européens contiennent généralement moins d'additifs et de conservateurs."
+        },
+        "chocolate_confectionery": {
+          "title": "Chocolat et confiseries",
+          "description": "Alternatives aux sucreries américaines",
+          "us": "Reese's, Skittles, M&M's, Tootsie Roll",
+          "eu": "Cémoi, Smarties, Dragibus, Carambar",
+          "note": "Les confiseries européennes utilisent souvent des recettes traditionnelles et des ingrédients de qualité."
+        },
+        "desserts": {
+          "title": "Desserts et pâtisseries",
+          "description": "Alternatives aux desserts américains",
+          "us": "Oreo, Pop-Tarts, Twinkies, Jell-O",
+          "eu": "BN, Napolitain, Paille d'Or, Flamby",
+          "note": "Les desserts européens privilégient souvent les recettes authentiques et les ingrédients naturels."
+        },
+        "icecream": {
+          "title": "Crèmes glacées",
+          "description": "Alternatives aux glaces américaines",
+          "us": "Ben & Jerry's, Häagen-Dazs",
+          "eu": "La Belle Aude, Carte d'Or",
+          "note": "Les glaces européennes sont souvent fabriquées avec du lait et de la crème de haute qualité."
+        },
+        "alcohol": {
+          "title": "Boissons alcoolisées",
+          "description": "Alternatives aux alcools américains",
+          "us": "Budweiser, Jack Daniel's",
+          "eu": "Kronenbourg, Bellevoye",
+          "note": "L'Europe possède une riche tradition de brasseries et distilleries avec des méthodes ancestrales."
+        },
+        "energydrinks": {
+          "title": "Boissons énergisantes",
+          "description": "Alternatives aux boissons américaines",
+          "us": "Red Bull (US), Gatorade",
+          "eu": "Dark Dog, Isostar",
+          "note": "Les boissons énergisantes européennes proposent souvent des formulations plus naturelles."
+        },
+        "soup": {
+          "title": "Soupes et conserves",
+          "description": "Alternatives aux conserves américaines",
+          "us": "Campbell's Soup, Spam",
+          "eu": "Liebig, Corned-beef Hénaff",
+          "note": "Les soupes et conserves européennes contiennent généralement moins d'additifs et de sel."
+        },
+        "cheese": {
+          "title": "Fromages et produits laitiers",
+          "description": "Alternatives aux fromages américains",
+          "us": "Velveeta, Philadelphia Cream Cheese",
+          "eu": "Caprice des Dieux, St Môret",
+          "note": "L'Europe est réputée pour sa tradition fromagère et ses produits laitiers de qualité."
+        },
+        "pasta": {
+          "title": "Pâtes et plats préparés",
+          "description": "Alternatives aux plats américains",
+          "us": "Kraft Mac & Cheese, Hot Pockets",
+          "eu": "Lustucru Coquillettes Fromage, Buitoni Piccolinis",
+          "note": "Les plats préparés européens privilégient souvent des recettes traditionnelles et des ingrédients de qualité."
+        }
+      },
+      "hygiene": {
+        "skincare": {
+          "title": "Soins de la peau",
+          "description": "Alternatives européennes pour les soins de la peau",
+          "us": "Neutrogena, CeraVe",
+          "eu": "La Roche-Posay, Bioderma",
+          "note": "Les marques européennes de soins de la peau suivent souvent des réglementations d'ingrédients plus strictes."
+        },
+        "toothpaste": {
+          "title": "Dentifrice",
+          "description": "Alternatives pour les soins dentaires",
+          "us": "Colgate, Crest",
+          "eu": "Elmex, Sanogyl",
+          "note": "De nombreuses marques dentaires européennes se concentrent sur les soins préventifs et les ingrédients naturels."
+        },
+        "deodorants": {
+          "title": "Déodorants",
+          "description": "Alternatives pour les soins personnels",
+          "us": "Old Spice, Dove",
+          "eu": "Nuxe, Le Petit Marseillais",
+          "note": "Les déodorants européens contiennent souvent moins de composés d'aluminium."
+        },
+        "makeup": {
+          "title": "Maquillage",
+          "description": "Alternatives aux marques américaines",
+          "us": "Maybelline, MAC",
+          "eu": "Bourjois, Yves Rocher",
+          "note": "Les marques de maquillage européennes proposent souvent des formules plus naturelles et moins testées sur les animaux."
+        },
+        "shampoo": {
+          "title": "Shampooing",
+          "description": "Alternatives pour les soins capillaires",
+          "us": "Head & Shoulders, Pantene",
+          "eu": "Klorane, Ducray",
+          "note": "Les shampooings européens contiennent souvent moins de sulfates et de parabènes."
+        },
+        "soap": {
+          "title": "Savon",
+          "description": "Alternatives aux savons américains",
+          "us": "Dial, Ivory",
+          "eu": "Marseille, Roger & Gallet",
+          "note": "Les savons européens sont souvent fabriqués selon des méthodes traditionnelles avec des ingrédients naturels."
+        }
+      },
+      "household": {
+        "cleaning": {
+          "title": "Produits de nettoyage",
+          "description": "Alternatives pour le nettoyage domestique",
+          "us": "Clorox, Lysol",
+          "eu": "Frosch, L'Arbre Vert",
+          "note": "Les marques de nettoyage européennes se concentrent souvent sur des formulations écologiques."
+        },
+        "laundry": {
+          "title": "Lessive",
+          "description": "Alternatives pour le lavage",
+          "us": "Tide, Gain",
+          "eu": "Le Chat, Rainett",
+          "note": "Les détergents européens sont souvent plus concentrés et respectueux de l'environnement."
+        },
+        "paper": {
+          "title": "Produits en papier",
+          "description": "Alternatives pour les mouchoirs et papiers",
+          "us": "Bounty, Charmin",
+          "eu": "Lotus, Renova",
+          "note": "Recherchez des produits en papier européens avec certification FSC pour une foresterie durable."
+        },
+        "furniture": {
+          "title": "Meubles",
+          "description": "Alternatives aux marques américaines",
+          "us": "Pottery Barn, Crate & Barrel",
+          "eu": "Maisons du Monde, BoConcept",
+          "note": "Les meubles européens sont souvent fabriqués avec des matériaux durables et un design intemporel."
+        },
+        "kitchenware": {
+          "title": "Ustensiles de cuisine",
+          "description": "Alternatives aux marques américaines",
+          "us": "KitchenAid, Cuisinart",
+          "eu": "Tefal, WMF",
+          "note": "Les ustensiles de cuisine européens sont réputés pour leur qualité et leur durabilité."
+        },
+        "candles": {
+          "title": "Bougies",
+          "description": "Alternatives aux marques américaines",
+          "us": "Yankee Candle, Bath & Body Works",
+          "eu": "Diptyque, Fragonard",
+          "note": "Les bougies européennes utilisent souvent des cires naturelles et des parfums de haute qualité."
+        }
+      },
+      "fashion": {
+        "clothing": {
+          "title": "Vêtements",
+          "description": "Alternatives aux marques américaines",
+          "us": "Gap, Tommy Hilfiger",
+          "eu": "Zara, H&M",
+          "note": "Les marques de vêtements européennes proposent souvent des designs plus avant-gardistes et une meilleure qualité."
+        },
+        "sportswear": {
+          "title": "Vêtements de sport",
+          "description": "Alternatives aux marques américaines",
+          "us": "Nike, Under Armour",
+          "eu": "Adidas, Decathlon",
+          "note": "Les marques de sport européennes offrent souvent un bon rapport qualité-prix et des innovations techniques."
+        },
+        "shoes": {
+          "title": "Chaussures",
+          "description": "Alternatives aux marques américaines",
+          "us": "Converse, Timberland",
+          "eu": "Geox, Ecco",
+          "note": "Les chaussures européennes sont souvent fabriquées avec des matériaux de qualité supérieure et un savoir-faire artisanal."
+        },
+        "luxury": {
+          "title": "Luxe",
+          "description": "Alternatives aux marques américaines",
+          "us": "Ralph Lauren, Michael Kors",
+          "eu": "Louis Vuitton, Chanel",
+          "note": "Les marques de luxe européennes sont reconnues pour leur artisanat exceptionnel et leur héritage."
+        },
+        "accessories": {
+          "title": "Accessoires",
+          "description": "Alternatives aux marques américaines",
+          "us": "Fossil, Coach",
+          "eu": "Longchamp, Furla",
+          "note": "Les accessoires européens sont souvent fabriqués avec des matériaux de qualité supérieure et un design intemporel."
+        },
+        "jewelry": {
+          "title": "Bijoux",
+          "description": "Alternatives aux marques américaines",
+          "us": "Tiffany & Co., Pandora",
+          "eu": "Swarovski, APM Monaco",
+          "note": "Les bijoux européens sont souvent fabriqués avec un savoir-faire traditionnel et des matériaux de qualité."
+        }
+      },
+      "tech": {
+        "smartphones": {
+          "title": "Smartphones",
+          "description": "Alternatives aux marques américaines",
+          "us": "Apple, Google",
+          "eu": "Nokia, Wiko",
+          "note": "Les smartphones européens offrent souvent un bon rapport qualité-prix et respectent davantage la vie privée."
+        },
+        "computers": {
+          "title": "Ordinateurs",
+          "description": "Alternatives aux marques américaines",
+          "us": "Dell, HP",
+          "eu": "Acer, ASUS",
+          "note": "Les ordinateurs européens proposent souvent des designs innovants et une bonne qualité de fabrication."
+        },
+        "audio": {
+          "title": "Audio",
+          "description": "Alternatives aux marques américaines",
+          "us": "Bose, Beats",
+          "eu": "Bang & Olufsen, Focal",
+          "note": "Les marques audio européennes sont réputées pour leur qualité sonore exceptionnelle et leur design élégant."
+        },
+        "appliances": {
+          "title": "Électroménager",
+          "description": "Alternatives aux marques américaines",
+          "us": "Whirlpool, GE",
+          "eu": "Bosch, Siemens",
+          "note": "L'électroménager européen est souvent plus économe en énergie et plus durable."
+        },
+        "gaming": {
+          "title": "Jeux vidéo",
+          "description": "Alternatives aux marques américaines",
+          "us": "Microsoft Xbox, EA",
+          "eu": "Ubisoft, CD Projekt",
+          "note": "Les studios de jeux européens créent souvent des jeux avec des histoires riches et des graphismes impressionnants."
+        },
+        "cameras": {
+          "title": "Appareils photo",
+          "description": "Alternatives aux marques américaines",
+          "us": "GoPro, Kodak",
+          "eu": "Leica, Olympus",
+          "note": "Les appareils photo européens sont réputés pour leur qualité d'image exceptionnelle et leur construction robuste."
+        }
+      }
+    }
+  },
+  "en": {
+    "products": {
+      "food": {
+        "drinks": {
+          "title": "Soft Drinks",
+          "description": "Instead of American sodas",
+          "us": "Coca-Cola, Pepsi",
+          "eu": "Breizh Cola, Fritz-kola",
+          "note": "Many European countries have local craft soda brands with natural ingredients."
+        },
+        "snacks": {
+          "title": "Snacks",
+          "description": "European alternatives to American snacks",
+          "us": "Lay's, Doritos, Monster Munch",
+          "eu": "Brets, Tyrrell's, Sibell",
+          "note": "European snacks often contain fewer additives and preservatives."
+        },
+        "fastfood": {
+          "title": "Fast Food",
+          "description": "Local alternatives to American chains",
+          "us": "McDonald's, Burger King, KFC, Subway, Domino's Pizza, Krispy Kreme",
+          "eu": "Quick, Big Fernand, O'Tacos, Pomme de Pain, La Boîte à Pizza, La Mie Câline",
+          "note": "Support local European fast food chains with regional specialties."
+        },
+        "coffee": {
+          "title": "Coffee",
+          "description": "Alternatives to American coffee chains",
+          "us": "Starbucks, Dunkin'",
+          "eu": "Columbus Café, Café Malongo",
+          "note": "European cafés often offer better quality beans and artisanal craftsmanship."
+        },
+        "chocolate": {
+          "title": "Chocolate",
+          "description": "Alternatives to American brands",
+          "us": "Hershey's, Mars",
+          "eu": "Lindt, Côte d'Or, Milka",
+          "note": "European chocolate is known for its superior quality and traditional manufacturing methods."
+        },
+        "cereals": {
+          "title": "Cereals",
+          "description": "Alternatives to American cereals",
+          "us": "Kellogg's, General Mills",
+          "eu": "Jordans, Alpen, Bjorg",
+          "note": "European cereals generally contain less sugar and more natural ingredients."
+        },
+        "soda": {
+          "title": "Sodas & Beverages",
+          "description": "Alternatives to American sodas",
+          "us": "Mountain Dew, Dr Pepper, Fanta, Sierra Mist",
+          "eu": "Club-Mate, Kofola, Orangina, 7Up",
+          "note": "Europe offers a wide variety of local sodas with original recipes and often less sugar."
+        },
+        "chips": {
+          "title": "Chips & Savory Snacks",
+          "description": "Alternatives to American brands",
+          "us": "Pringles, Barbecue Lay's, Goldfish Crackers",
+          "eu": "Lorenz Chipsletten, Chips Vico, Belin Croustilles",
+          "note": "European chips often use better quality ingredients and healthier oils."
+        },
+        "condiments": {
+          "title": "Condiments",
+          "description": "Alternatives to American sauces",
+          "us": "Heinz Ketchup, Cheez Whiz",
+          "eu": "Amora Ketchup, Kiri",
+          "note": "European condiments generally contain fewer additives and preservatives."
+        },
+        "chocolate_confectionery": {
+          "title": "Chocolate & Confectionery",
+          "description": "Alternatives to American sweets",
+          "us": "Reese's, Skittles, M&M's, Tootsie Roll",
+          "eu": "Cémoi, Smarties, Dragibus, Carambar",
+          "note": "European confectionery often uses traditional recipes and quality ingredients."
+        },
+        "desserts": {
+          "title": "Desserts & Pastries",
+          "description": "Alternatives to American desserts",
+          "us": "Oreo, Pop-Tarts, Twinkies, Jell-O",
+          "eu": "BN, Napolitain, Paille d'Or, Flamby",
+          "note": "European desserts often favor authentic recipes and natural ingredients."
+        },
+        "icecream": {
+          "title": "Ice Cream",
+          "description": "Alternatives to American ice cream",
+          "us": "Ben & Jerry's, Häagen-Dazs",
+          "eu": "La Belle Aude, Carte d'Or",
+          "note": "European ice creams are often made with high-quality milk and cream."
+        },
+        "alcohol": {
+          "title": "Alcoholic Beverages",
+          "description": "Alternatives to American alcohol",
+          "us": "Budweiser, Jack Daniel's",
+          "eu": "Kronenbourg, Bellevoye",
+          "note": "Europe has a rich tradition of breweries and distilleries with ancestral methods."
+        },
+        "energydrinks": {
+          "title": "Energy Drinks",
+          "description": "Alternatives to American beverages",
+          "us": "Red Bull (US), Gatorade",
+          "eu": "Dark Dog, Isostar",
+          "note": "European energy drinks often offer more natural formulations."
+        },
+        "soup": {
+          "title": "Soups & Canned Goods",
+          "description": "Alternatives to American canned goods",
+          "us": "Campbell's Soup, Spam",
+          "eu": "Liebig, Corned-beef Hénaff",
+          "note": "European soups and canned goods generally contain fewer additives and salt."
+        },
+        "cheese": {
+          "title": "Cheese & Dairy Products",
+          "description": "Alternatives to American cheese",
+          "us": "Velveeta, Philadelphia Cream Cheese",
+          "eu": "Caprice des Dieux, St Môret",
+          "note": "Europe is renowned for its cheese tradition and quality dairy products."
+        },
+        "pasta": {
+          "title": "Pasta & Ready Meals",
+          "description": "Alternatives to American dishes",
+          "us": "Kraft Mac & Cheese, Hot Pockets",
+          "eu": "Lustucru Coquillettes Fromage, Buitoni Piccolinis",
+          "note": "European ready meals often favor traditional recipes and quality ingredients."
+        }
+      },
+      "hygiene": {
+        "skincare": {
+          "title": "Skincare",
+          "description": "European skincare alternatives",
+          "us": "Neutrogena, CeraVe",
+          "eu": "La Roche-Posay, Bioderma",
+          "note": "European skincare brands often follow stricter ingredient regulations."
+        },
+        "toothpaste": {
+          "title": "Toothpaste",
+          "description": "Dental care alternatives",
+          "us": "Colgate, Crest",
+          "eu": "Elmex, Sanogyl",
+          "note": "Many European dental brands focus on preventative care and natural ingredients."
+        },
+        "deodorants": {
+          "title": "Deodorants",
+          "description": "Personal care alternatives",
+          "us": "Old Spice, Dove",
+          "eu": "Nuxe, Le Petit Marseillais",
+          "note": "European deodorants often contain fewer aluminum compounds."
+        },
+        "makeup": {
+          "title": "Makeup",
+          "description": "Alternatives to American brands",
+          "us": "Maybelline, MAC",
+          "eu": "Bourjois, Yves Rocher",
+          "note": "European makeup brands often offer more natural formulas and less animal testing."
+        },
+        "shampoo": {
+          "title": "Shampoo",
+          "description": "Hair care alternatives",
+          "us": "Head & Shoulders, Pantene",
+          "eu": "Klorane, Ducray",
+          "note": "European shampoos often contain fewer sulfates and parabens."
+        },
+        "soap": {
+          "title": "Soap",
+          "description": "Alternatives to American soaps",
+          "us": "Dial, Ivory",
+          "eu": "Marseille, Roger & Gallet",
+          "note": "European soaps are often made using traditional methods with natural ingredients."
+        }
+      },
+      "household": {
+        "cleaning": {
+          "title": "Cleaning Products",
+          "description": "Home cleaning alternatives",
+          "us": "Clorox, Lysol",
+          "eu": "Frosch, L'Arbre Vert",
+          "note": "European cleaning brands often focus on eco-friendly formulations."
+        },
+        "laundry": {
+          "title": "Laundry Detergent",
+          "description": "Washing alternatives",
+          "us": "Tide, Gain",
+          "eu": "Le Chat, Rainett",
+          "note": "European detergents are often more concentrated and environmentally friendly."
+        },
+        "paper": {
+          "title": "Paper Products",
+          "description": "Tissue and paper alternatives",
+          "us": "Bounty, Charmin",
+          "eu": "Lotus, Renova",
+          "note": "Look for European paper products with FSC certification for sustainable forestry."
+        },
+        "furniture": {
+          "title": "Furniture",
+          "description": "Alternatives to American brands",
+          "us": "Pottery Barn, Crate & Barrel",
+          "eu": "Maisons du Monde, BoConcept",
+          "note": "European furniture is often made with sustainable materials and timeless design."
+        },
+        "kitchenware": {
+          "title": "Kitchenware",
+          "description": "Alternatives to American brands",
+          "us": "KitchenAid, Cuisinart",
+          "eu": "Tefal, WMF",
+          "note": "European kitchenware is known for its quality and durability."
+        },
+        "candles": {
+          "title": "Candles",
+          "description": "Alternatives to American brands",
+          "us": "Yankee Candle, Bath & Body Works",
+          "eu": "Diptyque, Fragonard",
+          "note": "European candles often use natural waxes and high-quality fragrances."
+        }
+      },
+      "fashion": {
+        "clothing": {
+          "title": "Clothing",
+          "description": "Alternatives to American brands",
+          "us": "Gap, Tommy Hilfiger",
+          "eu": "Zara, H&M",
+          "note": "European clothing brands often offer more cutting-edge designs and better quality."
+        },
+        "sportswear": {
+          "title": "Sportswear",
+          "description": "Alternatives to American brands",
+          "us": "Nike, Under Armour",
+          "eu": "Adidas, Decathlon",
+          "note": "European sports brands often offer good value for money and technical innovations."
+        },
+        "shoes": {
+          "title": "Shoes",
+          "description": "Alternatives to American brands",
+          "us": "Converse, Timberland",
+          "eu": "Geox, Ecco",
+          "note": "European shoes are often made with higher quality materials and craftsmanship."
+        },
+        "luxury": {
+          "title": "Luxury",
+          "description": "Alternatives to American brands",
+          "us": "Ralph Lauren, Michael Kors",
+          "eu": "Louis Vuitton, Chanel",
+          "note": "European luxury brands are known for exceptional craftsmanship and heritage."
+        },
+        "accessories": {
+          "title": "Accessories",
+          "description": "Alternatives to American brands",
+          "us": "Fossil, Coach",
+          "eu": "Longchamp, Furla",
+          "note": "European accessories are often made with higher quality materials and timeless design."
+        },
+        "jewelry": {
+          "title": "Jewelry",
+          "description": "Alternatives to American brands",
+          "us": "Tiffany & Co., Pandora",
+          "eu": "Swarovski, APM Monaco",
+          "note": "European jewelry is often made with traditional craftsmanship and quality materials."
+        }
+      },
+      "tech": {
+        "smartphones": {
+          "title": "Smartphones",
+          "description": "Alternatives to American brands",
+          "us": "Apple, Google",
+          "eu": "Nokia, Wiko",
+          "note": "European smartphones often offer good value for money and better privacy."
+        },
+        "computers": {
+          "title": "Computers",
+          "description": "Alternatives to American brands",
+          "us": "Dell, HP",
+          "eu": "Acer, ASUS",
+          "note": "European computers often offer innovative designs and good build quality."
+        },
+        "audio": {
+          "title": "Audio",
+          "description": "Alternatives to American brands",
+          "us": "Bose, Beats",
+          "eu": "Bang & Olufsen, Focal",
+          "note": "European audio brands are known for exceptional sound quality and elegant design."
+        },
+        "appliances": {
+          "title": "Appliances",
+          "description": "Alternatives to American brands",
+          "us": "Whirlpool, GE",
+          "eu": "Bosch, Siemens",
+          "note": "European appliances are often more energy-efficient and durable."
+        },
+        "gaming": {
+          "title": "Gaming",
+          "description": "Alternatives to American brands",
+          "us": "Microsoft Xbox, EA",
+          "eu": "Ubisoft, CD Projekt",
+          "note": "European game studios often create games with rich stories and impressive graphics."
+        },
+        "cameras": {
+          "title": "Cameras",
+          "description": "Alternatives to American brands",
+          "us": "GoPro, Kodak",
+          "eu": "Leica, Olympus",
+          "note": "European cameras are known for exceptional image quality and robust construction."
+        }
+      }
+    }
+  }
+}

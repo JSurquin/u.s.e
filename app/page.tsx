@@ -31,6 +31,8 @@ import { jsPDF } from "jspdf";
 import "jspdf-autotable";
 import { autoTable, UserOptions, ThemeType } from "jspdf-autotable";
 import { useRouter } from "next/navigation";
+import { useProducts } from "@/hooks/useProducts";
+import HelloComponent from "@/components/ui/HelloComponent";
 
 const inter = Inter({ subsets: ["latin"] });
 
@@ -142,6 +144,7 @@ export default function Home() {
   const [suggestions, setSuggestions] = useState<Suggestion[]>([]);
   const [showSuggestions, setShowSuggestions] = useState(false);
   const searchRef = useRef<HTMLFormElement>(null);
+  const { products, loading, error } = useProducts(language);
 
   useEffect(() => {
     const handleScroll = () => {
@@ -165,32 +168,55 @@ export default function Home() {
 
   // Fonction pour générer les suggestions
   const generateSuggestions = (query: string): Suggestion[] => {
-    if (!query.trim()) return [];
+    if (!query.trim() || !products) return [];
 
-    const allProducts = [
-      ...Object.entries(t.products.food),
-      ...Object.entries(t.products.hygiene),
-      ...Object.entries(t.products.household),
-      ...Object.entries(t.products.fashion),
-      ...Object.entries(t.products.tech),
-    ];
+    const result: Suggestion[] = [];
 
-    return allProducts
-      .filter(([_, product]) => {
-        const searchStr = query.toLowerCase();
-        const typedProduct = product as Product;
-        return (
-          typedProduct.title.toLowerCase().includes(searchStr) ||
-          typedProduct.description.toLowerCase().includes(searchStr) ||
-          typedProduct.us.toLowerCase().includes(searchStr) ||
-          typedProduct.eu.toLowerCase().includes(searchStr)
-        );
-      })
-      .map(([key, product]) => ({
-        key,
-        ...(product as Product),
-      }))
-      .slice(0, 5);
+    try {
+      // Traitement de chaque catégorie
+      Object.entries(products).forEach(([category, categoryData]) => {
+        Object.entries(categoryData).forEach(([subcategory, items]) => {
+          // Conversion sécurisée en utilisant les propriétés appropriées
+          const item = items as unknown as Record<string, any>;
+
+          if (
+            item &&
+            typeof item === "object" &&
+            "title" in item &&
+            "eu" in item &&
+            "note" in item
+          ) {
+            // Vérifier si l'élément correspond à la recherche
+            const searchStr = query.toLowerCase();
+            const title = String(item.title || "").toLowerCase();
+            const description = String(item.description || "").toLowerCase();
+            const us = String(item.us || "").toLowerCase();
+            const eu = String(item.eu || "").toLowerCase();
+
+            if (
+              title.includes(searchStr) ||
+              description.includes(searchStr) ||
+              us.includes(searchStr) ||
+              eu.includes(searchStr)
+            ) {
+              // Ajouter à nos résultats avec une clé unique
+              result.push({
+                key: `${category}-${subcategory}`,
+                title: String(item.title || ""),
+                description: String(item.description || ""),
+                us: String(item.us || ""),
+                eu: String(item.eu || ""),
+                note: String(item.note || ""),
+              });
+            }
+          }
+        });
+      });
+    } catch (error) {
+      console.error("Erreur lors de la génération des suggestions:", error);
+    }
+
+    return result.slice(0, 5);
   };
 
   // Gérer le clic en dehors des suggestions
@@ -213,7 +239,7 @@ export default function Home() {
     const newSuggestions = generateSuggestions(searchQuery);
     setSuggestions(newSuggestions);
     setShowSuggestions(newSuggestions.length > 0);
-  }, [searchQuery]);
+  }, [searchQuery, products]);
 
   const translations = {
     fr: {
@@ -1529,10 +1555,7 @@ export default function Home() {
                 </div>
               </div>
               <div className="relative mx-auto flex aspect-square transform items-center justify-center overflow-hidden rounded-3xl shadow-2xl transition-all duration-500 hover:scale-[1.02] sm:w-full lg:order-last">
-                <div className="absolute inset-0 bg-gradient-to-br from-[#0066cc] to-[#5ac8fa] opacity-20 dark:opacity-40"></div>
-                <span className="text-[150px] drop-shadow-xl filter sm:text-[200px] md:text-[125px]">
-                  🇪🇺
-                </span>
+                <HelloComponent />
               </div>
             </div>
 
