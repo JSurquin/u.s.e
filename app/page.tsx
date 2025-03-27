@@ -1492,7 +1492,7 @@ export default function Home() {
                   <Link href="/all-products">
                     <Button
                       size="lg"
-                      className="rounded-full bg-gradient-to-r from-[#0066cc] to-[#5ac8fa] text-white shadow-lg transition-all duration-300 hover:from-[#0055aa] hover:to-[#4ab8ea] hover:shadow-xl"
+                      className="w-full rounded-full bg-gradient-to-r from-[#0066cc] to-[#5ac8fa] text-white shadow-lg transition-all duration-300 hover:from-[#0055aa] hover:to-[#4ab8ea] hover:shadow-xl md:w-auto"
                     >
                       {t.hero.explore}
                       <ArrowRight className="ml-2 h-4 w-4" />
