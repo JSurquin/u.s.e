@@ -1,3 +1,4 @@
+"use client";
 import { useState, useEffect } from "react";
 import { AllProductsData, Language, LanguageData } from "@/types/products";
 import productsData from "@/data/products.json";

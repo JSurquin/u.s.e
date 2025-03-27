@@ -32,7 +32,7 @@ import "jspdf-autotable";
 import { autoTable, UserOptions, ThemeType } from "jspdf-autotable";
 import { useRouter } from "next/navigation";
 import { useProducts } from "@/hooks/useProducts";
-import HelloComponent from "@/components/ui/HelloComponent";
+import DynamicHelloComponent from "@/components/ui/DynamicHelloComponent";
 
 const inter = Inter({ subsets: ["latin"] });
 
@@ -154,18 +154,6 @@ export default function Home() {
     return () => window.removeEventListener("scroll", handleScroll);
   }, []);
 
-  // Ajouter avant le return
-  useEffect(() => {
-    // Injecter le style pour masquer la barre de défilement
-    const styleElement = document.createElement("style");
-    styleElement.innerHTML = hideScrollbarStyle;
-    document.head.appendChild(styleElement);
-
-    return () => {
-      document.head.removeChild(styleElement);
-    };
-  }, []);
-
   // Fonction pour générer les suggestions
   const generateSuggestions = (query: string): Suggestion[] => {
     if (!query.trim() || !products) return [];
@@ -221,6 +209,8 @@ export default function Home() {
 
   // Gérer le clic en dehors des suggestions
   useEffect(() => {
+    if (typeof window === "undefined") return;
+
     const handleClickOutside = (event: MouseEvent) => {
       if (
         searchRef.current &&
@@ -1555,7 +1545,7 @@ export default function Home() {
                 </div>
               </div>
               <div className="relative mx-auto flex aspect-square transform items-center justify-center overflow-hidden rounded-3xl shadow-2xl transition-all duration-500 hover:scale-[1.02] sm:w-full lg:order-last">
-                <HelloComponent />
+                <DynamicHelloComponent />
               </div>
             </div>
 
