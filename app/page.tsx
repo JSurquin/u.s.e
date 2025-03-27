@@ -30,6 +30,7 @@ import { Input } from "@/components/ui/input";
 import { jsPDF } from "jspdf";
 import "jspdf-autotable";
 import { autoTable, UserOptions, ThemeType } from "jspdf-autotable";
+import { useRouter } from "next/navigation";
 
 const inter = Inter({ subsets: ["latin"] });
 
@@ -133,6 +134,7 @@ interface AutoTableUserOptions {
 }
 
 export default function Home() {
+  const router = useRouter();
   const [language, setLanguage] = useState<"fr" | "en">("fr");
   const [scrolled, setScrolled] = useState(false);
   const [activeTab, setActiveTab] = useState("food");
@@ -328,7 +330,7 @@ export default function Home() {
             eu: "Amora Ketchup, Kiri",
             note: "Les condiments européens contiennent généralement moins d'additifs et de conservateurs.",
           },
-          chocolate: {
+          chocolate_confectionery: {
             title: "Chocolat et confiseries",
             description: "Alternatives aux sucreries américaines",
             us: "Reese's, Skittles, M&M's, Tootsie Roll",
@@ -789,7 +791,7 @@ export default function Home() {
             eu: "Amora Ketchup, Kiri",
             note: "European condiments generally contain fewer additives and preservatives.",
           },
-          chocolate: {
+          chocolate_confectionery: {
             title: "Chocolate & Confectionery",
             description: "Alternatives to American sweets",
             us: "Reese's, Skittles, M&M's, Tootsie Roll",
@@ -1143,9 +1145,7 @@ export default function Home() {
   const handleSearch = (e: React.FormEvent) => {
     e.preventDefault();
     if (searchQuery.trim()) {
-      window.location.href = `/all-products?q=${encodeURIComponent(
-        searchQuery
-      )}`;
+      router.push(`/all-products?q=${encodeURIComponent(searchQuery)}`);
     }
   };
 
@@ -1433,8 +1433,11 @@ export default function Home() {
                             type="button"
                             className="w-full rounded-lg p-3 text-left hover:bg-[#f2f2f7] dark:hover:bg-[#3a3a3c]"
                             onClick={() => {
-                              setSearchQuery(suggestion.title);
-                              setShowSuggestions(false);
+                              router.push(
+                                `/all-products?q=${encodeURIComponent(
+                                  suggestion.title
+                                )}`
+                              );
                             }}
                           >
                             <div className="flex items-center justify-between">
