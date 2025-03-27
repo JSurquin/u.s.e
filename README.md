@@ -49,11 +49,15 @@ use-guide/
 
 ### Phase 2 (À venir)
 
-- [ ] Système d'authentification
+- [ ] Vrai support multilingue non mockée
+- [ ] Séparation des composants sous une meilleur architecture
 - [ ] Contribution communautaire
 - [ ] Système de notation et d'avis
 - [ ] API publique
 - [ ] Documentation technique
+- [ ] Système de recommandations
+- [ ] Système de notifications
+- [ ] Clean architecture, migrer le projet vers une base solide open source de clean code et des best practices.
 
 ### Phase 3 (Future)
 
@@ -103,4 +107,6 @@ Pour toute question ou suggestion, n'hésitez pas à nous contacter :
 
 ## 🙏 Remerciements
 
-Un grand merci à tous les contributeurs et utilisateurs qui participent à ce projet. Votre soutien est essentiel pour faire de U.S.E une ressource précieuse pour la communauté européenne.
+Un grand merci à tous les contributeurs et utilisateurs qui participent à ce projet.
+
+Votre soutien est essentiel pour faire de U.S.E une ressource précieuse pour la communauté européenne.
