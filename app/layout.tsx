@@ -8,20 +8,28 @@ const poppins = Poppins({
 });
 
 export const metadata: Metadata = {
-  title: "Use Alternatives Europeennes",
+  title: "U.S.E - Guide des Produits",
   description:
-    "Des solutions alternatives aux produits Américains de la vie quotidienne",
-  generator: "Use Alternatives Europeennes",
+    "Trouvez facilement des alternatives européennes à vos produits américains préférés.",
+  openGraph: {
+    type: "website",
+    locale: "fr_FR",
+    url: "https://use.andromed.fr",
+    siteName: "U.S.E",
+    title: "U.S.E - Guide des Produits",
+    description:
+      "Trouvez facilement des alternatives européennes à vos produits américains préférés.",
+  },
 };
 
 export default function RootLayout({
   children,
-}: Readonly<{
+}: {
   children: React.ReactNode;
-}>) {
+}) {
   return (
-    <html lang="fr" className={poppins.className} suppressHydrationWarning>
-      <body>{children}</body>
+    <html lang="fr">
+      <body className={poppins.className}>{children}</body>
     </html>
   );
 }

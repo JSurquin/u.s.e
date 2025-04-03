@@ -18,35 +18,15 @@ import {
 import { Input } from "@/components/ui/input";
 import { Badge } from "@/components/ui/badge";
 import { Sheet, SheetContent } from "@/components/ui/sheet";
-import { useProducts } from "@/hooks/useProducts";
-import {
-  Language,
-  Product,
-  SubcategoryData as ProductSubcategoryData,
-} from "@/types/products";
+import { useAllProducts } from "@/src/presentation/hooks/useAllProducts";
+import { Product } from "@/types/products";
 import { translations } from "@/data/translations";
 import {
   CategoryTranslations,
   SubcategoryTranslations,
 } from "@/types/translations";
 
-// Type pour les produits
-type SubcategoryData = {
-  title: string;
-  items: Product[];
-};
-
-type CategoryData = {
-  [subcategory: string]: SubcategoryData;
-};
-
-type AllProductsData = {
-  [category: string]: CategoryData;
-};
-
 type FilteredProduct = Product & {
-  category: string;
-  subcategory: string;
   subcategoryTitle: string;
 };
 
@@ -56,14 +36,21 @@ export default function AllProducts() {
 
   // Hooks de base - toujours appelés dans le même ordre
   const searchParams = useSearchParams();
-  const [language, setLanguage] = useState<Language>("fr");
+  const [language, setLanguage] = useState<"fr" | "en">("fr");
   const [searchQuery, setSearchQuery] = useState("");
   const [activeCategory, setActiveCategory] =
     useState<keyof CategoryTranslations>("all");
   const [activeSubcategory, setActiveSubcategory] = useState("all");
   const [isFiltersOpen, setIsFiltersOpen] = useState(false);
   const [debug, setDebug] = useState(false);
-  const { products, loading, error } = useProducts(language);
+
+  const { products, categories, subcategories, loading, error } =
+    useAllProducts({
+      language,
+      category: activeCategory,
+      subcategory: activeSubcategory,
+      searchQuery,
+    });
 
   const t = translations[language];
 
@@ -86,53 +73,43 @@ export default function AllProducts() {
   const filteredProducts = useMemo(() => {
     if (!products) return [];
 
-    const allProducts: FilteredProduct[] = [];
+    return products.map((product) => ({
+      ...product,
+      subcategoryTitle:
+        t.subcategories[product.category]?.[product.subcategory] ||
+        product.subcategory,
+    }));
+  }, [products, t.subcategories]);
 
-    Object.entries(products).forEach(([category, categoryData]) => {
-      if (activeCategory !== "all" && activeCategory !== category) return;
-
-      Object.entries(categoryData).forEach(([subcategory, subcategoryData]) => {
-        if (activeSubcategory !== "all" && activeSubcategory !== subcategory)
-          return;
-
-        if (typeof subcategoryData === "object") {
-          const product = subcategoryData as unknown as Product;
-          if (product && typeof product === "object") {
-            // Créer un objet temporaire avec le bon typage pour accéder à title
-            const dataWithTitle = subcategoryData as unknown as {
-              title?: string;
-            };
-
-            allProducts.push({
-              ...product,
-              category,
-              subcategory,
-              subcategoryTitle: dataWithTitle.title || "",
-            });
-          }
-        }
-      });
-    });
-
-    return allProducts.filter((product) => {
-      const matchesSearch = searchQuery
-        ? product.title.toLowerCase().includes(searchQuery.toLowerCase()) ||
-          product.eu.toLowerCase().includes(searchQuery.toLowerCase())
-        : true;
-
-      return matchesSearch;
-    });
-  }, [products, activeCategory, activeSubcategory, searchQuery]);
-
+  // Fonction pour gérer la recherche
   const handleSearch = (e: React.FormEvent) => {
     e.preventDefault();
-    // La recherche est déjà gérée par l'effet de filteredProducts
+    const form = e.target as HTMLFormElement;
+    const input = form.elements.namedItem("search") as HTMLInputElement;
+    setSearchQuery(input.value);
   };
 
+  // Fonction pour gérer le changement de catégorie
+  const handleCategoryChange = (category: keyof CategoryTranslations) => {
+    setActiveCategory(category);
+    setActiveSubcategory("all");
+  };
+
+  // Fonction pour gérer le changement de sous-catégorie
+  const handleSubcategoryChange = (subcategory: string) => {
+    setActiveSubcategory(subcategory);
+  };
+
+  // Fonction pour réinitialiser les filtres
   const handleClearFilters = () => {
-    setSearchQuery("");
     setActiveCategory("all");
     setActiveSubcategory("all");
+    setSearchQuery("");
+  };
+
+  // Fonction pour gérer le changement de langue
+  const handleLanguageChange = (lang: "fr" | "en") => {
+    setLanguage(lang);
   };
 
   // Fonction pour diviser une chaîne en tableau d'éléments
@@ -157,8 +134,11 @@ export default function AllProducts() {
   if (!isMounted) {
     return (
       <div className="flex min-h-screen items-center justify-center bg-[#f5f5f7] dark:bg-[#1d1d1f]">
-        <div className="animate-pulse text-[#0066cc] dark:text-[#5ac8fa]">
-          {language === "fr" ? "Chargement..." : "Loading..."}
+        <div className="flex flex-col items-center gap-3">
+          <div className="h-12 w-12 animate-spin rounded-full border-4 border-[#e5e5ea] border-t-[#0066cc] dark:border-[#3a3a3c] dark:border-t-[#5ac8fa]"></div>
+          <div className="font-medium text-[#0066cc] dark:text-[#5ac8fa]">
+            {language === "fr" ? "Chargement en cours..." : "Loading..."}
+          </div>
         </div>
       </div>
     );

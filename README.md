@@ -105,6 +105,24 @@ Pour toute question ou suggestion, n'hésitez pas à nous contacter :
 - Twitter: [À venir]
 - GitHub: [À venir]
 
+## 💡 Approche de Développement
+
+Ce projet a été développé en partie avec l'aide de l'IA (Claude 3.5/3.7) et Cursor IDE, s'inscrivant dans la tendance du "vibe coding" pour accélérer le développement initial. Cette approche nous a permis de :
+
+- Accélérer la création du prototype
+- Explorer rapidement différentes approches de design
+- Générer du code de base fonctionnel
+- Faciliter le développement des fonctionnalités répétitives
+
+Cependant, nous reconnaissons les limitations de cette méthode :
+
+- La génération de code par IA peut occasionner des erreurs sur des principes architecturaux vitaux
+- La maintenance peut devenir complexe sans une refactorisation appropriée
+- Les performances et l'optimisation peuvent être sous-optimales
+- La cohérence du code peut être compromise
+
+**Plan d'action :** Notre objectif n'est pas de rester sur cette base pour le long terme. La Phase 2 inclut une refactorisation complète vers une architecture propre et des pratiques de code exemplaires, en utilisant l'IA comme assistant plutôt que comme générateur principal.
+
 ## 🙏 Remerciements
 
 Un grand merci à tous les contributeurs et utilisateurs qui participent à ce projet.

@@ -31,7 +31,7 @@ import { jsPDF } from "jspdf";
 import "jspdf-autotable";
 import { autoTable, UserOptions, ThemeType } from "jspdf-autotable";
 import { useRouter } from "next/navigation";
-import { useProducts } from "@/hooks/useProducts";
+import { useProducts } from "@/src/presentation/hooks/useProducts";
 import DynamicHelloComponent from "@/components/ui/DynamicHelloComponent";
 
 const inter = Inter({ subsets: ["latin"] });
@@ -144,7 +144,7 @@ export default function Home() {
   const [suggestions, setSuggestions] = useState<Suggestion[]>([]);
   const [showSuggestions, setShowSuggestions] = useState(false);
   const searchRef = useRef<HTMLFormElement>(null);
-  const { products, loading, error } = useProducts(language);
+  const { products, loading, error } = useProducts();
 
   useEffect(() => {
     const handleScroll = () => {
@@ -163,42 +163,41 @@ export default function Home() {
     try {
       // Traitement de chaque catégorie
       Object.entries(products).forEach(([category, categoryData]) => {
-        Object.entries(categoryData).forEach(([subcategory, items]) => {
-          // Conversion sécurisée en utilisant les propriétés appropriées
-          const item = items as unknown as Record<string, any>;
-
-          if (
-            item &&
-            typeof item === "object" &&
-            "title" in item &&
-            "eu" in item &&
-            "note" in item
-          ) {
-            // Vérifier si l'élément correspond à la recherche
-            const searchStr = query.toLowerCase();
-            const title = String(item.title || "").toLowerCase();
-            const description = String(item.description || "").toLowerCase();
-            const us = String(item.us || "").toLowerCase();
-            const eu = String(item.eu || "").toLowerCase();
-
+        if (typeof categoryData === "object") {
+          Object.entries(categoryData).forEach(([subcategory, item]) => {
             if (
-              title.includes(searchStr) ||
-              description.includes(searchStr) ||
-              us.includes(searchStr) ||
-              eu.includes(searchStr)
+              item &&
+              typeof item === "object" &&
+              "title" in item &&
+              "description" in item &&
+              "us" in item &&
+              "eu" in item &&
+              "note" in item
             ) {
-              // Ajouter à nos résultats avec une clé unique
-              result.push({
-                key: `${category}-${subcategory}`,
-                title: String(item.title || ""),
-                description: String(item.description || ""),
-                us: String(item.us || ""),
-                eu: String(item.eu || ""),
-                note: String(item.note || ""),
-              });
+              const searchStr = query.toLowerCase();
+              const title = String(item.title).toLowerCase();
+              const description = String(item.description).toLowerCase();
+              const us = String(item.us).toLowerCase();
+              const eu = String(item.eu).toLowerCase();
+
+              if (
+                title.includes(searchStr) ||
+                description.includes(searchStr) ||
+                us.includes(searchStr) ||
+                eu.includes(searchStr)
+              ) {
+                result.push({
+                  key: `${category}-${subcategory}`,
+                  title: String(item.title),
+                  description: String(item.description),
+                  us: String(item.us),
+                  eu: String(item.eu),
+                  note: String(item.note),
+                });
+              }
             }
-          }
-        });
+          });
+        }
       });
     } catch (error) {
       console.error("Erreur lors de la génération des suggestions:", error);
@@ -1580,7 +1579,7 @@ export default function Home() {
 
             <Tabs
               defaultValue="food"
-              className="mx-auto mt-12 w-full max-w-4xl overflow-hidden"
+              className="mx-auto mt-12 w-full max-w-6xl overflow-hidden"
               onValueChange={setActiveTab}
             >
               <div className="relative w-full">
@@ -1797,7 +1796,7 @@ export default function Home() {
               </TabsContent>
 
               <TabsContent value="hygiene" className="mt-6 p-4">
-                <div className="mx-auto grid max-w-[1600px] gap-4 sm:gap-5 md:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4">
+                <div className="mx-auto grid max-w-[1800px] gap-4 sm:gap-5 md:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4">
                   {/* Similar card structure for hygiene products */}
                   <Card className="transform overflow-hidden rounded-2xl border-0 bg-white shadow-md transition-all duration-300 hover:scale-[1.01] hover:shadow-lg dark:bg-[#2c2c2e]">
                     <div className="absolute right-4 top-4">
@@ -1867,7 +1866,7 @@ export default function Home() {
               </TabsContent>
 
               <TabsContent value="household" className="mt-6 p-4">
-                <div className="mx-auto grid max-w-[1600px] gap-4 sm:gap-5 md:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4">
+                <div className="mx-auto grid max-w-[1800px] gap-4 sm:gap-5 md:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4">
                   <Card className="transform overflow-hidden rounded-2xl border-0 bg-white shadow-md transition-all duration-300 hover:scale-[1.01] hover:shadow-lg dark:bg-[#2c2c2e]">
                     <CardHeader className="px-5 pb-0 pt-5">
                       <CardTitle className="text-xl font-medium">
@@ -1931,7 +1930,7 @@ export default function Home() {
               </TabsContent>
 
               <TabsContent value="fashion" className="mt-6 p-4">
-                <div className="mx-auto grid max-w-[1600px] gap-4 sm:gap-5 md:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4">
+                <div className="mx-auto grid max-w-[1800px] gap-4 sm:gap-5 md:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4">
                   <Card className="transform overflow-hidden rounded-2xl border-0 bg-white shadow-md transition-all duration-300 hover:scale-[1.01] hover:shadow-lg dark:bg-[#2c2c2e]">
                     <div className="absolute right-4 top-4">
                       <Badge className="border-0 bg-gradient-to-r from-[#0066cc] to-[#5ac8fa] py-0.5 text-xs shadow-sm hover:from-[#0055aa] hover:to-[#4ab8ea]">
@@ -2000,7 +1999,7 @@ export default function Home() {
               </TabsContent>
 
               <TabsContent value="tech" className="mt-6 p-4">
-                <div className="mx-auto grid max-w-[1600px] gap-4 sm:gap-5 md:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4">
+                <div className="mx-auto grid max-w-[1800px] gap-4 sm:gap-5 md:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4">
                   <Card className="transform overflow-hidden rounded-2xl border-0 bg-white shadow-md transition-all duration-300 hover:scale-[1.01] hover:shadow-lg dark:bg-[#2c2c2e]">
                     <CardHeader className="px-5 pb-0 pt-5">
                       <CardTitle className="text-xl font-medium">
@@ -2349,19 +2348,19 @@ export default function Home() {
               <nav className="flex flex-col gap-3">
                 <Link
                   className="text-sm text-[#6e6e73] transition-colors hover:text-[#0066cc] dark:text-[#86868b] dark:hover:text-[#5ac8fa]"
-                  href="#"
+                  href="/about/privacy"
                 >
                   {t.about.privacy.title}
                 </Link>
                 <Link
                   className="text-sm text-[#6e6e73] transition-colors hover:text-[#0066cc] dark:text-[#86868b] dark:hover:text-[#5ac8fa]"
-                  href="#"
+                  href="/about/economy"
                 >
                   {t.about.economy.title}
                 </Link>
                 <Link
                   className="text-sm text-[#6e6e73] transition-colors hover:text-[#0066cc] dark:text-[#86868b] dark:hover:text-[#5ac8fa]"
-                  href="#"
+                  href="/about/quality"
                 >
                   {t.about.quality.title}
                 </Link>
@@ -2372,19 +2371,19 @@ export default function Home() {
               <nav className="flex flex-col gap-3">
                 <Link
                   className="text-sm text-[#6e6e73] transition-colors hover:text-[#0066cc] dark:text-[#86868b] dark:hover:text-[#5ac8fa]"
-                  href="#"
+                  href="/digital/terms"
                 >
                   {t.footer.terms}
                 </Link>
                 <Link
                   className="text-sm text-[#6e6e73] transition-colors hover:text-[#0066cc] dark:text-[#86868b] dark:hover:text-[#5ac8fa]"
-                  href="#"
+                  href="/digital/privacy"
                 >
                   {t.footer.privacy}
                 </Link>
                 <Link
                   className="text-sm text-[#6e6e73] transition-colors hover:text-[#0066cc] dark:text-[#86868b] dark:hover:text-[#5ac8fa]"
-                  href="#"
+                  href="/digital/contact"
                 >
                   {t.footer.contact}
                 </Link>
@@ -2392,9 +2391,17 @@ export default function Home() {
             </div>
           </div>
           <div className="mt-12 border-t border-[#e5e5ea] pt-8 text-center dark:border-[#3a3a3c]">
-            <p className="text-xs text-[#8e8e93] dark:text-[#98989d]">
-              Designed with ❤️ for European alternatives
-            </p>
+            <div className="flex items-center justify-center gap-2">
+              <p className="text-xs text-[#8e8e93] dark:text-[#98989d]">
+                Designed with ❤️ for European alternatives
+              </p>
+              <Badge
+                variant="outline"
+                className="border-0 bg-gradient-to-r from-[#0066cc] to-[#5ac8fa] px-2 py-0.5 text-xs text-white shadow-sm"
+              >
+                v0.1
+              </Badge>
+            </div>
           </div>
         </div>
       </footer>

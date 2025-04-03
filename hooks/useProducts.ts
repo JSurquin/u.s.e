@@ -1,49 +1,63 @@
 "use client";
 import { useState, useEffect } from "react";
-import { AllProductsData, Language, LanguageData } from "@/types/products";
-import productsData from "@/data/products.json";
+import { Product } from "../src/domain/entities/Product";
+import { GetProductsUseCase } from "../src/application/use-cases/GetProductsUseCase";
+import { JsonProductRepository } from "../src/infrastructure/repositories/JsonProductRepository";
 
-const isAllProductsData = (data: unknown): data is AllProductsData => {
-  if (!data || typeof data !== "object") return false;
+const productRepository = new JsonProductRepository();
+const getProductsUseCase = new GetProductsUseCase(productRepository);
 
-  const typedData = data as Record<string, unknown>;
-  return Object.values(typedData).every((langData) => {
-    if (!langData || typeof langData !== "object") return false;
-    const typedLangData = langData as Record<string, unknown>;
-    return "products" in typedLangData;
-  });
-};
-
-export const useProducts = (language: Language = "fr") => {
-  const [products, setProducts] = useState<AllProductsData>(
-    {} as AllProductsData
-  );
-  const [loading, setLoading] = useState(false);
-  const [error, setError] = useState<string | null>(null);
+export const useProducts = (language: "fr" | "en" = "fr") => {
+  const [products, setProducts] = useState<
+    Record<string, Record<string, Product>>
+  >({});
+  const [loading, setLoading] = useState(true);
+  const [error, setError] = useState<Error | null>(null);
 
   useEffect(() => {
-    const loadProducts = async () => {
+    const fetchProducts = () => {
       try {
         setLoading(true);
-        if (isAllProductsData(productsData)) {
-          setProducts(productsData);
-        } else {
-          throw new Error("Format de données invalide");
-        }
+        const allProducts = getProductsUseCase.execute({ language });
+
+        // Convertir le tableau plat en structure imbriquée
+        const structuredProducts = allProducts.reduce((acc, product) => {
+          if (!product.category) return acc;
+
+          if (!acc[product.category]) {
+            acc[product.category] = {};
+          }
+
+          if (product.subcategory) {
+            acc[product.category][product.subcategory] = {
+              title: product.title,
+              description: product.description,
+              us: product.us,
+              eu: product.eu,
+              note: product.note || "",
+            };
+          }
+
+          return acc;
+        }, {} as Record<string, Record<string, Product>>);
+
+        setProducts(structuredProducts);
+        setError(null);
       } catch (err) {
         setError(
-          err instanceof Error ? err.message : "Une erreur est survenue"
+          err instanceof Error ? err : new Error("Une erreur est survenue")
         );
+        setProducts({});
       } finally {
         setLoading(false);
       }
     };
 
-    loadProducts();
+    fetchProducts();
   }, [language]);
 
   return {
-    products: products[language]?.products || {},
+    products,
     loading,
     error,
   };
